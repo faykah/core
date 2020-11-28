@@ -116,7 +116,7 @@ const user = generateUser();
 
 #### With middleware function
 
-```
+```typescript
 import {createObjectGenerator} from "@faykah/core";
 import {names} from "@faykah/names-en";
 import {emails} from "@faykah/emails-en";
