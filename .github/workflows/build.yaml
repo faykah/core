@@ -21,3 +21,6 @@ jobs:
 
       - name: Stage the new build
         run: git commit -m "production build"
+
+      - name: Push the changes
+        run: git push
