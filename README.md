@@ -50,6 +50,23 @@ const generateName = createGenerator(names);
 const name = generateName();
 ```
 
+#### With middleware function
+
+```typescript
+import {createGenerator} from "@faykah/core";
+import {names} from "@faykah/names-en";
+
+// Creates a handy function to pick a random name
+const generateName = createGenerator(names);
+
+const toUppercase = generatedName => {
+  return name.toUpperCase();
+};
+
+// Name randomly picked and uppercased
+const name = generateName(toUppercase);
+```
+
 ### Object generator
 
 #### Classic
@@ -95,6 +112,41 @@ const generateUser = createObjectGenerator({
 
 // User randomly picked
 const user = generateUser();
+```
+
+#### With middleware function
+
+```
+import {createObjectGenerator} from "@faykah/core";
+import {names} from "@faykah/names-en";
+import {emails} from "@faykah/emails-en";
+import {roles} from "@faykah/roles-en";
+
+// Creates a handy function to pick a random user
+const generateUser = createObjectGenerator({
+  // Pick a random name
+  name: names
+
+  // Pick a random email
+  email: emails
+
+  // Pick a random role
+  role: roles,
+
+  // Password randomly picked
+  password: ["Cat91!", "Dog74#", "H4ppy4niv3rs4ry@"]
+});
+
+// Replace all characaters of the password by stars
+const secured = generatedUser => {
+  return {
+    ...generatedUser,
+    password: generatedUser.password.replace(/./, "*")
+  };
+};
+
+// User randomly picked
+const user = generateUser(secured);
 ```
 
 #### Nested properties
