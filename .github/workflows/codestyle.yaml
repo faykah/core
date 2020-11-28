@@ -1,0 +1,17 @@
+name: Code Style
+
+on: [push, pull_request]
+
+jobs:
+  codestyle:
+    name: Check the code style
+    run-ons: ubuntu-latest
+    steps:
+      - name: Checkout the project
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: docker-compose run --rm --user root -T npm install
+
+      - name: Check the code style
+        run: docker-compose run --rm --user root -T npm run lint

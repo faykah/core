@@ -1,0 +1,17 @@
+name: Tests
+
+on: [push, pull_request]
+
+jobs:
+  tests:
+    name: Run the unit tests
+    run-ons: ubuntu-latest
+    steps:
+      - name: Checkout the project
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: docker-compose run --rm --user root -T npm install
+
+      - name: Test the library
+        run: docker-compose run --rm --user root -T npm test

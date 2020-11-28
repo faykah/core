@@ -1,0 +1,26 @@
+name: Build
+
+on: [push]
+
+jobs:
+  build:
+    name: Build the project
+    run-ons: ubuntu-latest
+    steps:
+      - name: Checkout the project
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: docker-compose run --rm --user root -T npm install
+
+      - name: Build the library
+        run: docker-compose run --rm --user root -T npm run build
+
+      - name: Stage the new build
+        run: git add .
+
+      - name: Commit the build
+        run: git commit --message ":package: new production build"
+
+      - name: Push the changes
+        run: git push
