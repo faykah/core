@@ -1,49 +1,50 @@
 module.exports = {
+  env: {
+    es2020: true,
+    jest: true,
+    node: true
+  },
+  extends: [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "@aminnairi/eslint-config"
+  ],
+  overrides: [{
     env: {
-        es2020: true,
-        node: true,
-        jest: true
+      node: false
     },
-    extends: [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended",
-        "@aminnairi/eslint-config"
-    ],
+    extends: "@aminnairi/eslint-config-typescript",
+    files: "*.ts",
     parser: "@typescript-eslint/parser",
     parserOptions: {
-        ecmaVersion: 12
-    },
-    overrides: [{
-        files: "*.ts",
-        extends: "@aminnairi/eslint-config-typescript",
-        parserOptions: {
-            sourceType: "module",
-            project: "./test.tsconfig.json"
-        },
-        parser: "@typescript-eslint/parser",
-        env: {
-            node: false
-        }
-    }],
-    plugins: [
-        "@typescript-eslint"
-    ],
-    rules: {
-        "indent": [
-            "error",
-            4
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "quotes": [
-            "error",
-            "double"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ]
+      project: "./test.tsconfig.json",
+      sourceType: "module"
     }
+  }],
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
+    ecmaVersion: 12
+  },
+  plugins: [
+    "@typescript-eslint"
+  ],
+  rules: {
+    "@typescript-eslint/indent": ["error", 2],
+    "indent": [
+      "error",
+      2
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "quotes": [
+      "error",
+      "double"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ]
+  }
 };
