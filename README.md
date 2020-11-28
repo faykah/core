@@ -152,6 +152,46 @@ const hidePassword = (password: string): string => password.replace(/./gu, "*");
 const user = generateUser({password: hidePassword});
 ```
 
+#### With multiple generators
+
+```typescript
+import {createObjectGenerator} from "@faykah/core";
+import {names} from "@faykah/names-en";
+import {emails} from "@faykah/emails-en";
+import {roles} from "@faykah/roles-en";
+
+const latitudes = [1, 2, 3, 4, 5];
+const longitudes = [5, 4, 3, 2, 1];
+
+// Creates a handy function to pick a random user
+const generateUser = createObjectGenerator({
+  // Pick a random email
+  email: emails,
+
+  // Pick a random name
+  name: names,
+
+  // Password randomly picked
+  password: ["Cat91!", "Dog74#", "H4ppy4niv3rs4ry@"],
+
+  // Pick a random role
+  role: roles
+});
+
+// Creates a handy function to pick a random location
+const generateLocation = createObjectGenerator({
+  // Pick a random latitude
+  latitude: latitudes
+
+  // Pick a random longitude
+  longitude: longitudes
+});
+
+// User randomly picked
+const user = {...generateUser(), ...generateLocation()};
+```
+
+
 ## Changelog
 
 See [`CHANGELOG.md`](./CHANGELOG.md)
