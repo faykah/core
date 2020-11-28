@@ -6,7 +6,11 @@
   "main": "lib/index.common.min.js",
   "browser": "lib/index.browser.min.js",
   "typings": "lib/index.d.ts",
+  "module": "lib/index.esm.js",
   "license": "MIT",
+  "files": [
+    "lib"
+  ],
   "keywords": [
     "faker",
     "mock",
@@ -23,6 +27,8 @@
   "devDependencies": {
     "@aminnairi/eslint-config": "github:aminnairi/eslint-config",
     "@aminnairi/eslint-config-typescript": "github:aminnairi/eslint-config-typescript",
+    "@faykah/first-names-en": "github:faykah/first-names-en",
+    "@faykah/last-names-en": "github:faykah/last-names-en",
     "@rollup/plugin-typescript": "^6.1.0",
     "@typescript-eslint/eslint-plugin": "^4.8.2",
     "@typescript-eslint/parser": "^4.8.2",
