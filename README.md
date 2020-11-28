@@ -41,30 +41,29 @@ const name = generateName();
 
 ```typescript
 import {createGenerator} from "@faykah/core";
-import {names} from "@faykah/names-en";
+import {firstNames} from "@faykah/first-names-en";
 
-// Creates a handy function to pick a random name
-const generateName = createGenerator(names);
+// Creates a handy function to pick a random first name
+const generateFirstName = createGenerator(firstNames);
 
-// Name randomly picked
-const name = generateName();
+// First name randomly picked
+const firstName = generateFirstName();
 ```
 
 #### With middleware function
 
 ```typescript
 import {createGenerator} from "@faykah/core";
-import {names} from "@faykah/names-en";
+import {firstNames} from "@faykah/first-names-en";
 
-// Creates a handy function to pick a random name
-const generateName = createGenerator(names);
+// Creates a handy function to pick a random first name
+const generateFirstName = createGenerator(firstNames);
 
-const toUppercase = generatedName => {
-  return generatedName.toUpperCase();
-};
+// Return an uppercase version of the text
+const uppercased = text => text.toUpperCase();
 
-// Name randomly picked and uppercased
-const name = generateName(toUppercase);
+// First name randomly picked and uppercased
+const name = generateName(uppercased);
 ```
 
 ### Object generator
@@ -74,19 +73,20 @@ const name = generateName(toUppercase);
 ```typescript
 import {createObjectGenerator} from "@faykah/core";
 
+const emails = ["first@domain.com", "second@domain.com", "third@domain.com"];
+const firstNames = ["first", "second", "third"];
+const lastNames = ["fourth", "fifth", "sixth"];
+
 // Creates a handy function to pick a random user
 const generateUser = createObjectGenerator({
   // Pick a random email
-  email: ["bronte@domain.com", "teddie@domain.com", "alexie@domain.com"],
+  email: emails,
 
-  // Pick a random name
-  name: ["Bronte", "Teddie", "Alexie"],
+  // Pick a random first name
+  firstName: firstNames,
 
-  // Password randomly picked
-  password: ["Cat91!", "Dog74#", "H4ppy4niv3rs4ry@"],
-
-  // Pick a random role
-  role: ["ADMIN", "USER", "SUPERUSER", "GUEST"]
+  // Pick a random last name
+  lastName: lastNames
 });
 
 // User randomly picked
@@ -97,26 +97,21 @@ const user = generateUser();
 
 ```typescript
 import {createObjectGenerator} from "@faykah/core";
-import {names} from "@faykah/names-en";
 import {emails} from "@faykah/emails-en";
-import {roles} from "@faykah/roles-en";
+import {firstNames} from "@faykah/first-names-en";
+import {lastNames} from "@faykah/last-names-en";
 
-// Creates a handy function to pick a random user
 const generateUser = createObjectGenerator({
   // Pick a random email
   email: emails,
 
-  // Pick a random name
-  name: names,
+  // Pick a random first name
+  firstName: firstNames,
 
-  // Password randomly picked
-  password: ["Cat91!", "Dog74#", "H4ppy4niv3rs4ry@"],
-
-  // Pick a random role
-  role: roles
+  // Pick a random last name
+  lastName: lastNames
 });
 
-// User randomly picked
 const user = generateUser();
 ```
 
@@ -124,69 +119,59 @@ const user = generateUser();
 
 ```typescript
 import {createObjectGenerator} from "@faykah/core";
-import {names} from "@faykah/names-en";
 import {emails} from "@faykah/emails-en";
-import {roles} from "@faykah/roles-en";
+import {firstNames} from "@faykah/first-names-en";
+import {lastNames} from "@faykah/last-names-en";
 
-// Creates a handy function to pick a random user
 const generateUser = createObjectGenerator({
   // Pick a random email
   email: emails,
 
-  // Pick a random name
-  name: names,
+  // Pick a random first name
+  firstName: firstNames,
 
-  // Password randomly picked
-  password: ["Cat91!", "Dog74#", "H4ppy4niv3rs4ry@"],
-
-  // Pick a random role
-  role: roles
+  // Pick a random last name
+  lastName: lastNames
 });
 
-// Replace all characters of the password by stars
-const hidePassword = (password: string): string => password.replace(/./gu, "*");
+// Handy function to uppercase a text
+const uppercased = text => text.toUpperCase();
 
-// User randomly picked
-const user = generateUser({password: hidePassword});
+// Handy function to lowercase a text
+const lowercased = text => text.toLowerCase();
+
+// Pick a random user and apply some transformations
+const user = generateUser({
+  firstName: lowercased,
+  lastName: uppercased
+});
 ```
 
 #### With multiple generators
 
 ```typescript
 import {createObjectGenerator} from "@faykah/core";
-import {names} from "@faykah/names-en";
 import {emails} from "@faykah/emails-en";
-import {roles} from "@faykah/roles-en";
+import {firstNames} from "@faykah/first-names-en";
+import {lastNames} from "@faykah/last-names-en";
 
-const latitudes = [1, 2, 3, 4, 5];
-const longitudes = [5, 4, 3, 2, 1];
+const generateUserName = createObjectGenerator({
+  // Pick a random first name
+  firstName: firstNames,
 
-// Creates a handy function to pick a random user
-const generateUser = createObjectGenerator({
+  // Pick a random last name
+  lastName: lastNames
+});
+
+const generateUserInformations = createObjectGenerator({
   // Pick a random email
-  email: emails,
-
-  // Pick a random name
-  name: names,
-
-  // Password randomly picked
-  password: ["Cat91!", "Dog74#", "H4ppy4niv3rs4ry@"],
-
-  // Pick a random role
-  role: roles
+  email: emails
 });
 
-// Creates a handy function to pick a random location
-const generateLocation = createObjectGenerator({
-  // Pick a random latitude
-  latitude: latitudes
-
-  // Pick a random longitude
-  longitude: longitudes
-});
-
-// User randomly picked
-const user = {...generateUser(), ...generateLocation()};
+const user = {
+  ...generateUserName(),
+  ...generateUserInformations()
+};
 ```
 
 ## Changelog
