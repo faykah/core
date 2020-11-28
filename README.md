@@ -189,7 +189,6 @@ const generateLocation = createObjectGenerator({
 const user = {...generateUser(), ...generateLocation()};
 ```
 
-
 ## Changelog
 
 See [`CHANGELOG.md`](./CHANGELOG.md)
