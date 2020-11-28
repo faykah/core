@@ -60,7 +60,7 @@ import {names} from "@faykah/names-en";
 const generateName = createGenerator(names);
 
 const toUppercase = generatedName => {
-  return name.toUpperCase();
+  return generatedName.toUpperCase();
 };
 
 // Name randomly picked and uppercased
