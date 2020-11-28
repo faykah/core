@@ -6,24 +6,24 @@ services:
     user: node
     entrypoint: npm
     command: --help
-    working_dir: /home/node/app
+    working_dir: /home/node
     volumes:
-      - .:/home/node/app
+      - .:/home/node
 
   node:
     image: node:15.0.0
     user: node
     entrypoint: node
     command: --help
-    working_dir: /home/node/app
+    working_dir: /home/node
     volumes:
-      - .:/home/node/app
+      - .:/home/node
 
   npx:
     image: node:15.0.0
     user: node
     entrypoint: npx
     command: --help
-    working_dir: /home/node/app
+    working_dir: /home/node
     volumes:
-      - .:/home/node/app
+      - .:/home/node
