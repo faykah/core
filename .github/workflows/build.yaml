@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
     name: Build the project
-    run-ons: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout the project
         uses: actions/checkout@v2
