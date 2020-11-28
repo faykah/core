@@ -1,10 +1,10 @@
-# @faykah/core
+#  @faykah/core
 
 Data mock library.
 
 ![Code Style](https://github.com/faykah/core/workflows/Code%20Style/badge.svg) ![Tests](https://github.com/faykah/core/workflows/Tests/badge.svg) ![Build](https://github.com/faykah/core/workflows/Build/badge.svg)
 
-## Summary
+## :paperclip: Summary
 
 - [Requirements](#requirements)
 - [Installation](#installation)
@@ -23,24 +23,24 @@ Data mock library.
 - [Contributing](#contributing)
 - [License](#license)
 
-## Requirements
+## :thinking: Requirements
 
 - [Node.js](https://nodejs.org/en/)
 - [NPM](https://www.npmjs.com/)
 
-## Installation
+## :arrow_down: Installation
 
 ```console
 $ npm install @faykah/core
 ```
 
-## Uninstallation
+## :cry: Uninstallation
 
 ```console
 $ npm uninstall @faykah/core
 ```
 
-## Usage
+## :thinking: Usage
 
 ### Generator
 
@@ -198,14 +198,14 @@ const user = {
 };
 ```
 
-## Changelog
+## :bookmark: Changelog
 
 See [`CHANGELOG.md`](./CHANGELOG.md)
 
-## Contributing
+## :pray: Contributing
 
 See [`CONTRIBUTING.md`](./CONTRIBUTING.md)
 
-## License
+## :scroll: License
 
 See [`LICENSE`](./LICENSE)
