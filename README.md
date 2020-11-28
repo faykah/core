@@ -11,8 +11,6 @@ Data mock library.
 
 ## Installation
 
-*Note: this library is still in its early stage and the package has not been published yet.*
-
 ```console
 $ npm install @faykah/core
 ```
