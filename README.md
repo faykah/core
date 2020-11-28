@@ -137,7 +137,7 @@ const generateUser = createObjectGenerator({
   password: ["Cat91!", "Dog74#", "H4ppy4niv3rs4ry@"]
 });
 
-// Replace all characaters of the password by stars
+// Replace all characters of the password by stars
 const secured = generatedUser => {
   return {
     ...generatedUser,
