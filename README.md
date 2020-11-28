@@ -76,11 +76,14 @@ import {createObjectGenerator} from "@faykah/core";
 
 // Creates a handy function to pick a random user
 const generateUser = createObjectGenerator({
-  // Pick a random name
-  name: ["Bronte", "Teddie", "Alexie"]
-
   // Pick a random email
   email: ["bronte@domain.com", "teddie@domain.com", "alexie@domain.com"],
+
+  // Pick a random name
+  name: ["Bronte", "Teddie", "Alexie"],
+
+  // Password randomly picked
+  password: ["Cat91!", "Dog74#", "H4ppy4niv3rs4ry@"],
 
   // Pick a random role
   role: ["ADMIN", "USER", "SUPERUSER", "GUEST"]
@@ -100,11 +103,14 @@ import {roles} from "@faykah/roles-en";
 
 // Creates a handy function to pick a random user
 const generateUser = createObjectGenerator({
-  // Pick a random name
-  name: names
-
   // Pick a random email
-  email: emails
+  email: emails,
+
+  // Pick a random name
+  name: names,
+
+  // Password randomly picked
+  password: ["Cat91!", "Dog74#", "H4ppy4niv3rs4ry@"],
 
   // Pick a random role
   role: roles
@@ -124,62 +130,34 @@ import {roles} from "@faykah/roles-en";
 
 // Creates a handy function to pick a random user
 const generateUser = createObjectGenerator({
-  // Pick a random name
-  name: names
-
   // Pick a random email
-  email: emails
+  email: emails,
 
-  // Pick a random role
-  role: roles,
+  // Pick a random name
+  name: names,
 
   // Password randomly picked
-  password: ["Cat91!", "Dog74#", "H4ppy4niv3rs4ry@"]
-});
-
-// Replace all characters of the password by stars
-const secured = generatedUser => {
-  return {
-    ...generatedUser,
-    password: generatedUser.password.replace(/./, "*")
-  };
-};
-
-// User randomly picked
-const user = generateUser(secured);
-```
-
-#### Nested properties
-
-```typescript
-import {createObjectGenerator} from "@faykah/core";
-import {names} from "@faykah/names-en";
-import {emails} from "@faykah/emails-en";
-import {roles} from "@faykah/roles-en";
-import {latitudes} from "@faykah/latitudes";
-import {longitudes} from "@faykah/longitudes";
-
-// Creates a handy function to pick a random user
-const generateUser = createObjectGenerator({
-  // Pick a random name
-  name: names
-
-  // Pick a random email
-  email: emails
+  password: ["Cat91!", "Dog74#", "H4ppy4niv3rs4ry@"],
 
   // Pick a random role
   role: roles
-
-  // Pick a random location
-  location: createObjectGenerator({
-    // Pick a random latitude
-    latitude: latitudes,
-
-    // Pick a random longitude
-    longitude: longitudes
-  })
 });
 
+// Replace all characters of the password by stars
+const hidePassword = (password: string): string => password.replace(/./gu, "*");
+
 // User randomly picked
-const user = generateUser();
+const user = generateUser({password: hidePassword});
 ```
+
+## Changelog
+
+See [`CHANGELOG.md`](./CHANGELOG.md)
+
+## Contributing
+
+See [`CONTRIBUTING.md`](./CONTRIBUTING.md)
+
+## License
+
+See [`LICENSE`](./LICENSE)
