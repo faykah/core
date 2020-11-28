@@ -60,10 +60,10 @@ import {createObjectGenerator} from "@faykah/core";
 // Creates a handy function to pick a random user
 const generateUser = createObjectGenerator({
   // Pick a random name
-  name: ["Bronte", "Teddie", "Alexie", "Kira", "Hakim"]
+  name: ["Bronte", "Teddie", "Alexie"]
 
   // Pick a random email
-  email: ["bronte@domain.com", "teddie@domain.com", "alexie@domain.com", "kira@domain.com", "hakim@domain.com"],
+  email: ["bronte@domain.com", "teddie@domain.com", "alexie@domain.com"],
 
   // Pick a random role
   role: ["ADMIN", "USER", "SUPERUSER", "GUEST"]
@@ -79,17 +79,18 @@ const user = generateUser();
 import {createObjectGenerator} from "@faykah/core";
 import {names} from "@faykah/names-en";
 import {emails} from "@faykah/emails-en";
+import {roles} from "@faykah/roles-en";
 
 // Creates a handy function to pick a random user
 const generateUser = createObjectGenerator({
   // Pick a random name
-  name: ["Bronte", "Teddie", "Alexie", "Kira", "Hakim"]
+  name: names
 
   // Pick a random email
-  email: ["bronte@domain.com", "teddie@domain.com", "alexie@domain.com", "kira@domain.com", "hakim@domain.com"],
+  email: emails
 
   // Pick a random role
-  role: ["ADMIN", "USER", "SUPERUSER", "GUEST"]
+  role: roles
 });
 
 // User randomly picked
@@ -102,19 +103,20 @@ const user = generateUser();
 import {createObjectGenerator} from "@faykah/core";
 import {names} from "@faykah/names-en";
 import {emails} from "@faykah/emails-en";
+import {roles} from "@faykah/roles-en";
 import {latitudes} from "@faykah/latitudes";
 import {longitudes} from "@faykah/longitudes";
 
 // Creates a handy function to pick a random user
 const generateUser = createObjectGenerator({
   // Pick a random name
-  name: ["Bronte", "Teddie", "Alexie", "Kira", "Hakim"]
+  name: names
 
   // Pick a random email
-  email: ["bronte@domain.com", "teddie@domain.com", "alexie@domain.com", "kira@domain.com", "hakim@domain.com"],
+  email: emails
 
   // Pick a random role
-  role: ["ADMIN", "USER", "SUPERUSER", "GUEST"],
+  role: roles
 
   // Pick a random location
   location: createObjectGenerator({
