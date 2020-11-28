@@ -6,10 +6,10 @@ Data mock library.
 
 ## :paperclip: Summary
 
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Uninstallation](#uninstallation)
-- [Usage](#usage)
+- [:thinking: Requirements](#thinking-requirements)
+- [:arrow_down: Installation](#arrow_down-installation)
+- [:cry: Uninstallation](#cry-uninstallation)
+- [:thinking: Usage](#thinking-usage)
   - [Generator](#generator)
     - [Classic](#classic)
     - [With libraries](#with-libraries)
@@ -19,9 +19,9 @@ Data mock library.
     - [With libraries](#with-libraries-1)
     - [With middleware function](#with-middleware-function-1)
     - [With multiple generators](#with-multiple-generators)
-- [Changelog](#changelog)
-- [Contributing](#contributing)
-- [License](#license)
+- [:bookmark: Changelog](#bookmark-changelog)
+- [:pray: Contributing](#pray-contributing)
+- [:scroll: License](#scroll-license)
 
 ## :thinking: Requirements
 
