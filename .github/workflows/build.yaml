@@ -18,9 +18,3 @@ jobs:
 
       - name: Stage the new build
         run: git add .
-
-      - name: Commit the build
-        run: git commit --message ":package: new production build"
-
-      - name: Push the changes
-        run: git push
