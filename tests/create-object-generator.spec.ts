@@ -1,4 +1,6 @@
 import {createObjectGenerator} from "../src/index";
+import {firstNames} from "@faykah/first-names-en";
+import {lastNames} from "@faykah/last-names-en";
 
 describe("createObjectGenerator", () => {
   it("should return an object", () => {
@@ -8,8 +10,8 @@ describe("createObjectGenerator", () => {
 
     const generateUser = createObjectGenerator({
       age: [FIRST_AGE, SECOND_AGE, THIRD_AGE],
-      firstname: ["John", "Foo", "Bar"],
-      lastname: ["Doe", "Baz", "Faz"]
+      firstname: firstNames,
+      lastname: lastNames
     });
 
     const user = generateUser();
@@ -28,8 +30,8 @@ describe("createObjectGenerator", () => {
 
     const generateUser = createObjectGenerator({
       age: [FIRST_AGE, SECOND_AGE, THIRD_AGE],
-      firstname: ["John", "Foo", "Bar"],
-      lastname: ["Doe", "Baz", "Faz"]
+      firstname: firstNames,
+      lastname: lastNames
     });
 
     const user = generateUser({age: oldAge => oldAge * oldAge});
