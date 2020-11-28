@@ -4,6 +4,25 @@ Data mock library.
 
 ![Code Style](https://github.com/faykah/core/workflows/Code%20Style/badge.svg) ![Tests](https://github.com/faykah/core/workflows/Tests/badge.svg) ![Build](https://github.com/faykah/core/workflows/Build/badge.svg)
 
+## Summary
+
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Uninstallation](#uninstallation)
+- [Usage](#usage)
+  - [Generator](#generator)
+    - [Classic](#classic)
+    - [With libraries](#with-libraries)
+    - [With middleware function](#with-middleware-function)
+  - [Object generator](#object-generator)
+    - [Classic](#classic-1)
+    - [With libraries](#with-libraries-1)
+    - [With middleware function](#with-middleware-function-1)
+    - [With multiple generators](#with-multiple-generators)
+- [Changelog](#changelog)
+- [Contributing](#contributing)
+- [License](#license)
+
 ## Requirements
 
 - [Node.js](https://nodejs.org/en/)
