@@ -5,7 +5,7 @@ on: [push, pull_request]
 jobs:
   codestyle:
     name: Check the code style
-    run-ons: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout the project
         uses: actions/checkout@v2
