@@ -2,32 +2,130 @@
 
 Data mock library.
 
-```ts
-import { seedObject, seedArray } from "@faykah/core";
-import { emails, Email } from "@faykah/email-fr";
-import { phones, Phone } from "@faykah/phones-fr";
-import { addresses, Address } from "@faykah/address-fr";
-import { citySuffixes } from "@faykah/city-suffixe-fr";
-import { longitudes } from "@faykah/longitude-fr";
-import { latitudes } from "@faykah/latitude-en";
+## Requirements
 
-const generateLocation = ;
+- [Node.js](https://nodejs.org/en/)
+- [NPM](https://www.npmjs.com/)
 
+## Installation
+
+*Note: this library is still in its early stage and the package has not been published yet.*
+
+```console
+$ npm install @faykah/core
+```
+
+## Uninstallation
+
+```console
+$ npm uninstall @faykah/core
+```
+
+## Usage
+
+### Generator
+
+#### Classic
+
+```typescript
+import {createGenerator} from "@faykah/core";
+
+// Creates a handy function to pick a random name
+const generateName = createGenerator(["Nelson", "Martin", "Muhammad", "Mahatma", "Dalai"]);
+
+// Name randomly picked
+const name = generateName();
+```
+
+#### With libraries
+
+```typescript
+import {createGenerator} from "@faykah/core";
+import {names} from "@faykah/names-en";
+
+// Creates a handy function to pick a random name
+const generateName = createGenerator(names);
+
+// Name randomly picked
+const name = generateName();
+```
+
+### Object generator
+
+#### Classic
+
+```typescript
+import {createObjectGenerator} from "@faykah/core";
+
+// Creates a handy function to pick a random user
 const generateUser = createObjectGenerator({
-	email: emails,
-	address: addresses,
-	location: createObjectGenerator({
-		latitudes,
-		longitudes, 
-	}),
-	phone: phones,
-	city: citySuffixes,
+  // Pick a random name
+  name: ["Bronte", "Teddie", "Alexie", "Kira", "Hakim"]
+
+  // Pick a random email
+  email: ["bronte@domain.com", "teddie@domain.com", "alexie@domain.com", "kira@domain.com", "hakim@domain.com"],
+
+  // Pick a random role
+  role: ["ADMIN", "USER", "SUPERUSER", "GUEST"]
 });
 
-const generateEmail = createArrayGenerator(emails);
+// User randomly picked
+const user = generateUser();
+```
 
-generateUser(); // {"email": "john@doe.com", "address": "28 rue du test", "location": {"latitude": 80}}
-generateUser(); // {"email": "bar@foo.com", "address": "128 VSCode street", "location": {"latitude": 11}}
-generateEmail(); // "john@doe.com"
-generateEmail(); // "foo@bar.com"
+#### With libraries
+
+```typescript
+import {createObjectGenerator} from "@faykah/core";
+import {names} from "@faykah/names-en";
+import {emails} from "@faykah/emails-en";
+
+// Creates a handy function to pick a random user
+const generateUser = createObjectGenerator({
+  // Pick a random name
+  name: ["Bronte", "Teddie", "Alexie", "Kira", "Hakim"]
+
+  // Pick a random email
+  email: ["bronte@domain.com", "teddie@domain.com", "alexie@domain.com", "kira@domain.com", "hakim@domain.com"],
+
+  // Pick a random role
+  role: ["ADMIN", "USER", "SUPERUSER", "GUEST"]
+});
+
+// User randomly picked
+const user = generateUser();
+```
+
+#### Nested properties
+
+```typescript
+import {createObjectGenerator} from "@faykah/core";
+import {names} from "@faykah/names-en";
+import {emails} from "@faykah/emails-en";
+import {latitudes} from "@faykah/latitudes";
+import {longitudes} from "@faykah/longitudes";
+
+// Creates a handy function to pick a random user
+const generateUser = createObjectGenerator({
+  // Pick a random name
+  name: ["Bronte", "Teddie", "Alexie", "Kira", "Hakim"]
+
+  // Pick a random email
+  email: ["bronte@domain.com", "teddie@domain.com", "alexie@domain.com", "kira@domain.com", "hakim@domain.com"],
+
+  // Pick a random role
+  role: ["ADMIN", "USER", "SUPERUSER", "GUEST"],
+
+  // Pick a random location
+  location: createObjectGenerator({
+    // Pick a random latitude
+    latitude: latitudes,
+
+    // Pick a random longitude
+    longitude: longitudes
+  })
+});
+
+// User randomly picked
+const user = generateUser();
 ```
