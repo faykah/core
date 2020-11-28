@@ -8,7 +8,7 @@ const random = <T>(values: Readonly<T[]>): T => {
   return items[FIRST];
 };
 
-const createObjectGenerator = <Schema>(schemaDefinition: Readonly<{[Key in keyof Schema]: Schema[Key][]}>) => (middlewares?: Readonly<{[Key in keyof Schema]?: <Value extends Schema[Key]>(value: Value) => Value}>): Schema => {
+const createObjectGenerator = <Schema>(schemaDefinition: Readonly<{[Key in keyof Schema]: Schema[Key][]}>) => (middlewares?: Readonly<{[Key in keyof Schema]?: (value: Schema[Key]) => Schema[Key]}>): Schema => {
   const schema = {} as Schema;
 
   for (const property in schemaDefinition) {
