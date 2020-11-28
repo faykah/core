@@ -30,11 +30,11 @@ $ npm uninstall @faykah/core
 ```typescript
 import {createGenerator} from "@faykah/core";
 
-// Creates a handy function to pick a random name
-const generateName = createGenerator(["Nelson", "Martin", "Muhammad", "Mahatma", "Dalai"]);
+// Creates a handy function to pick a random first name
+const generateFirstName = createGenerator(["Nelson", "Martin", "Muhammad", "Mahatma", "Dalai"]);
 
-// Name randomly picked
-const name = generateName();
+// First name randomly picked
+const firstName = generateFirstName();
 ```
 
 #### With libraries
@@ -101,6 +101,7 @@ import {emails} from "@faykah/emails-en";
 import {firstNames} from "@faykah/first-names-en";
 import {lastNames} from "@faykah/last-names-en";
 
+// Create a handy function to pick a random user
 const generateUser = createObjectGenerator({
   // Pick a random email
   email: emails,
@@ -112,6 +113,7 @@ const generateUser = createObjectGenerator({
   lastName: lastNames
 });
 
+// User randomly picked
 const user = generateUser();
 ```
 
@@ -123,6 +125,7 @@ import {emails} from "@faykah/emails-en";
 import {firstNames} from "@faykah/first-names-en";
 import {lastNames} from "@faykah/last-names-en";
 
+// Create a handy function to pick a random user
 const generateUser = createObjectGenerator({
   // Pick a random email
   email: emails,
@@ -140,7 +143,7 @@ const uppercased = text => text.toUpperCase();
 // Handy function to lowercase a text
 const lowercased = text => text.toLowerCase();
 
-// Pick a random user and apply some transformations
+// User randomly picked with transformations
 const user = generateUser({
   firstName: lowercased,
   lastName: uppercased
@@ -155,6 +158,7 @@ import {emails} from "@faykah/emails-en";
 import {firstNames} from "@faykah/first-names-en";
 import {lastNames} from "@faykah/last-names-en";
 
+// Create a handy function to pick a random user
 const generateUserName = createObjectGenerator({
   // Pick a random first name
   firstName: firstNames,
@@ -168,6 +172,7 @@ const generateUserInformations = createObjectGenerator({
   email: emails
 });
 
+// User randomly picked
 const user = {
   ...generateUserName(),
   ...generateUserInformations()
