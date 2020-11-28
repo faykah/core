@@ -1,0 +1,43 @@
+{
+  "name": "@faykah/core",
+  "version": "0.1.0",
+  "description": "Data mock library.",
+  "homepage": "https://github.com/faykah/core",
+  "main": "lib/index.js",
+  "browser": "dist/index.min.js",
+  "license": "MIT",
+  "keywords": [
+    "faker",
+    "mock",
+    "faykah"
+  ],
+  "bugs": {
+    "url": "https://github.com/faykah/core/issues",
+    "email": "khalyomede@gmail.com"
+  },
+  "repository": {
+    "type": "library",
+    "url": "https://github.com/faykah/core"
+  },
+  "devDependencies": {
+    "@aminnairi/eslint-config": "github:aminnairi/eslint-config",
+    "@aminnairi/eslint-config-typescript": "github:aminnairi/eslint-config-typescript",
+    "@rollup/plugin-typescript": "^6.1.0",
+    "@typescript-eslint/eslint-plugin": "^4.8.2",
+    "@typescript-eslint/parser": "^4.8.2",
+    "eslint": "^7.14.0",
+    "jest": "^26.6.3",
+    "rollup": "^2.33.3",
+    "rollup-plugin-delete": "^2.0.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "ts-jest": "^26.4.4",
+    "ts-node": "^9.0.0",
+    "tslib": "^2.0.3",
+    "typescript": "^4.1.2"
+  },
+  "scripts": {
+    "build": "./node_modules/rollup/dist/bin/rollup -c && ./node_modules/typescript/bin/tsc --declaration --emitDeclarationOnly --declarationDir lib",
+	"test": "./node_modules/jest/bin/jest.js",
+	"lint": "./node_modules/eslint/bin/eslint.js --fix ."
+  }
+}
