@@ -217,6 +217,7 @@ const generateUserName = createObjectGenerator({
   lastName: lastNames
 });
 
+// Creates a handy function for generating user informations
 const generateUserInformations = createObjectGenerator({
   // Pick a random email
   email: emails
