@@ -33,5 +33,5 @@ jobs:
       - name: Committing the files
         run: 'git commit --message ":package: production build" || true'
 
-      - name: Committing the files
+      - name: Pushing the changes
         run: git push
