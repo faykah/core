@@ -41,7 +41,7 @@
     "@aminnairi/eslint-config-typescript": "github:aminnairi/eslint-config-typescript",
     "@babel/core": "^7.12.9",
     "@babel/preset-env": "^7.12.7",
-    "@faykah/emails-en": "^0.1.0",
+    "@faykah/emails-en": "^0.1.1",
     "@faykah/first-names-en": "github:faykah/first-names-en",
     "@faykah/last-names-en": "github:faykah/last-names-en",
     "@rollup/plugin-typescript": "^6.1.0",
