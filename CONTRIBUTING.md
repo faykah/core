@@ -14,6 +14,15 @@ $ git clone https://github.com/faykah/core.git
 $ git clone git@github.com:faykah/core.git
 ```
 
+## Environment setup
+
+```console
+$ cp .env.example .env
+$ $EDITOR .env
+```
+
+Where `$EDITOR` is your text editor's startup command.
+
 ## Dependencies
 
 ```console
