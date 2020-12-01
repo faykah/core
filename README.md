@@ -18,6 +18,7 @@ Data mock library.
     - [Classic](#classic-1)
     - [With libraries](#with-libraries-1)
     - [With middleware function](#with-middleware-function-1)
+    - [With nested configuration](#with-nested-configuration)
     - [With multiple generators](#with-multiple-generators)
 - [:bookmark: Changelog](#bookmark-changelog)
 - [:pray: Contributing](#pray-contributing)
@@ -167,6 +168,35 @@ const user = generateUser({
   firstName: lowercased,
   lastName: uppercased
 });
+```
+
+#### With nested configuration
+
+```typescript
+import {createObjectGenerator} from "./src/index";
+import {emails} from "@faykah/emails-en";
+import {firstNames} from "@faykah/first-names-en";
+import {lastNames} from "@faykah/last-names-en";
+
+// Create a handy function to pick a random user
+const generateUser = createObjectGenerator({
+  // Pick a random first name
+  firstName: firstNames,
+
+  // Pick a random last name
+  lastName: lastNames,
+
+  // Meta user informations
+  meta: {
+    // Pick a random email
+    email: emails
+  }
+});
+
+const uppercased = text => text.toUpperCase();
+
+// User randomly picked
+const user = generateUser({meta: {email: uppercased}});
 ```
 
 #### With multiple generators

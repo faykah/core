@@ -1,0 +1,26 @@
+name: Pakcage
+
+on:
+  push:
+    branches:
+      - next
+      - latest
+
+jobs:
+  package:
+    name: Build the project & publish the package to the NPM registry
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the project
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: docker-compose run --rm --user root -T npm install
+
+      - name: Build the library
+        run: docker-compose run --rm --user root -T npm run build
+
+      - name: Publish the package
+        run: docker-compose run --rm --user root -T npm publish --access public
+        env:
+          NPM_AUTH_TOKEN: $GITHUB_TOKEN

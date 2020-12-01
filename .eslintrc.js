@@ -20,6 +20,9 @@ module.exports = {
       parserOptions: {
         project: "./test.tsconfig.json",
         sourceType: "module"
+      },
+      rules: {
+        "@typescript-eslint/no-type-alias": "off"
       }
     },
     {
