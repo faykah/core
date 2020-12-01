@@ -2,7 +2,7 @@ version: "3"
 
 services:
   npm:
-    image: node:14.0.0
+    image: node:15.0.0
     user: node
     entrypoint: npm
     command: --help
@@ -13,7 +13,7 @@ services:
       - .:/home/node
 
   node:
-    image: node:14.0.0
+    image: node:15.0.0
     user: node
     entrypoint: node
     command: --help
@@ -22,10 +22,20 @@ services:
       - .:/home/node
 
   npx:
-    image: node:14.0.0
+    image: node:15.0.0
     user: node
     entrypoint: npx
     command: --help
     working_dir: /home/node
+    volumes:
+      - .:/home/node
+
+  bash:
+    image: node:15.0.0
+    user: node
+    entrypoint: bash -c
+    working_dir: /home/node
+    environment:
+        NODE_AUTH_TOKEN: $NODE_AUTH_TOKEN
     volumes:
       - .:/home/node
