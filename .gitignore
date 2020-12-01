@@ -2,3 +2,5 @@
 /.npm
 /.npmrc
 /.env
+/.bash_history
+/.config
