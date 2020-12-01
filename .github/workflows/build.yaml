@@ -1,0 +1,37 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - next
+      - latest
+
+
+jobs:
+  build:
+    name: Build the project
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the project
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: make install
+
+      - name: Build the project
+        run: make build
+
+      - name: Configuration for the Git user name
+        run: git config user.name "Amin NAIRI"
+
+      - name: Configuration for the Git user email
+        run: git config user.email "nairi.amin@gmail.com"
+
+      - name: Staging the updated files
+        run: git add .
+
+      - name: Committing the files
+        run: 'git commit --message ":package: production build" || true'
+
+      - name: Committing the files
+        run: git push
