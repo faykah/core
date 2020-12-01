@@ -173,7 +173,7 @@ const user = generateUser({
 #### With nested configuration
 
 ```typescript
-import {createObjectGenerator} from "./src/index";
+import {createObjectGenerator} from "@faykah/core";
 import {emails} from "@faykah/emails-en";
 import {firstNames} from "@faykah/first-names-en";
 import {lastNames} from "@faykah/last-names-en";
