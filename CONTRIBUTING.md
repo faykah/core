@@ -5,6 +5,7 @@
 - [Git](https://git-scm.com/)
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
+- [GNU/Make](https://www.gnu.org/software/make/)
 
 ## Installation
 
@@ -16,31 +17,31 @@ $ git clone git@github.com:faykah/core.git
 ## Dependencies
 
 ```console
-$ docker-compose run --rm npm install
+$ make install
 ```
 
 ## Lint
 
 ```console
-$ docker-compose run --rm npm run lint
+$ make lint
 ```
 
-## Lint & Fix
+## Fix
 
 ```console
-$ docker-compose run --rm npm run lint:fix
+$ make fix
 ```
 
 ## Test
 
 ```console
-$ docker-compose run --rm npm test
+$ make test
 ```
 
 ## Build
 
 ```console
-$ docker-compose run --rm npm test
+$ make build
 ```
 
 ## NPM
