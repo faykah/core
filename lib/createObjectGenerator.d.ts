@@ -1,1 +1,10 @@
-export declare const createObjectGenerator: <Schema>(schemaDefinition: Readonly<{ [Key in keyof Schema]: Schema[Key][]; }>) => (middlewares?: Readonly<{ [Key_1 in keyof Schema]?: ((value: Schema[Key_1]) => Schema[Key_1]) | undefined; }> | undefined) => Schema;
+declare type SchemaDefinition<Schema> = {
+    [Key in keyof Schema]: Schema[Key][] | {
+        [K in keyof Schema[Key]]: Schema[Key][K][];
+    };
+};
+declare type Middlewares<Schema> = {
+    [Key in keyof Schema]?: ((value: Readonly<Schema[Key]>) => Schema[Key]) | Middlewares<Schema[Key]>;
+};
+export declare const createObjectGenerator: <Schema>(schemaDefinition?: Readonly<SchemaDefinition<Schema>>) => (middlewares?: Readonly<Middlewares<Schema>>) => Schema;
+export {};
