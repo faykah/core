@@ -193,6 +193,7 @@ const generateUser = createObjectGenerator({
   }
 });
 
+// Creates a handy function to uppercase a text
 const uppercased = text => text.toUpperCase();
 
 // User randomly picked
