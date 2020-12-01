@@ -2,7 +2,7 @@
 
 Data mock library.
 
-![Code Style](https://github.com/faykah/core/workflows/Code%20Style/badge.svg) ![Tests](https://github.com/faykah/core/workflows/Tests/badge.svg) ![Build](https://github.com/faykah/core/workflows/Build/badge.svg)
+![Code Style](https://github.com/faykah/core/workflows/Code%20Style/badge.svg) ![Tests](https://github.com/faykah/core/workflows/Tests/badge.svg) ![Build](https://github.com/faykah/core/workflows/Build/badge.svg) ![Package](https://github.com/faykah/core/workflows/Package/badge.svg)
 
 ## :paperclip: Summary
 
