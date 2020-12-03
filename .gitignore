@@ -4,3 +4,6 @@
 /.env
 /.bash_history
 /.config
+/.yarnrc
+/.cache
+/yarn.lock
