@@ -5,6 +5,23 @@
 - [`0.1.0`](#010)
 - [`0.2.0`](#020)
 - [`0.2.1`](#021)
+- [`0.2.2`](#022)
+
+## 0.2.2
+
+*2020-12-03*
+
+### Major changes
+
+None.
+
+### Minor changes
+
+None.
+
+### Bug & security fixes
+
+- Fixed the SPDX license name ([#9](https://github.com/faykah/core/pull/9))
 
 ## 0.2.1 
 
