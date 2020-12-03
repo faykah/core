@@ -7,7 +7,7 @@
   "browser": "lib/index.browser.min.js",
   "typings": "lib/index.d.ts",
   "module": "lib/index.esm.js",
-  "license": "GPLv3",
+  "license": "GPL-3.0-or-later",
   "files": [
     "lib"
   ],
