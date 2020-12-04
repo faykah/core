@@ -8,7 +8,12 @@ Data mock library.
 
 - [:thinking: Requirements](#thinking-requirements)
 - [:arrow_down: Installation](#arrow_down-installation)
-- [:cry: Uninstallation](#cry-uninstallation)
+  - [Browser](#browser)
+    - [Script](#script)
+    - [ECMAScript Module](#ecmascript-module)
+  - [Node](#node)
+    - [CommonJS](#commonjs)
+    - [ECMAScript Module](#ecmascript-module-1)
 - [:thinking: Usage](#thinking-usage)
   - [Generator](#generator)
     - [Classic](#classic)
@@ -31,14 +36,51 @@ Data mock library.
 
 ## :arrow_down: Installation
 
-```console
-$ npm install @faykah/core
+### Browser
+
+#### Script
+
+```html
+<!DOCTYPE html>
+<html>
+  <script src="https://unpkg.com/@faykah/core"></script>
+  <script>
+    "use strict";
+
+    const {createGenerator, createObjectGenerator} = Faykah;
+  </script>
+</html>
 ```
 
-## :cry: Uninstallation
+#### ECMAScript Module 
+
+```html
+<!DOCTYPE html>
+<html>
+  <script type="module">
+    "use strict";
+
+    import {createGenerator, createObjectGenerator} from "https://unpkg.com/@faykah/core/lib/index.esm.min.js";
+  </script>
+</html>
+```
+
+### Node
 
 ```console
-$ npm uninstall @faykah/core
+$ npm install --save @faykah/core
+```
+
+#### CommonJS
+
+```typescript
+const {createGenerator, createObjectGenerator} = require("@faykah/core");
+```
+
+#### ECMAScript Module
+
+```typescript
+import {createGenerator, createObjectGenerator} from "@faykah/core";
 ```
 
 ## :thinking: Usage
@@ -48,8 +90,6 @@ $ npm uninstall @faykah/core
 #### Classic
 
 ```typescript
-import {createGenerator} from "@faykah/core";
-
 // Creates a handy function to pick a random first name
 const generateFirstName = createGenerator(["Nelson", "Martin", "Muhammad", "Mahatma", "Dalai"]);
 
@@ -60,7 +100,6 @@ const firstName = generateFirstName();
 #### With libraries
 
 ```typescript
-import {createGenerator} from "@faykah/core";
 import {firstNames} from "@faykah/first-names-en";
 
 // Creates a handy function to pick a random first name
@@ -73,7 +112,6 @@ const firstName = generateFirstName();
 #### With middleware function
 
 ```typescript
-import {createGenerator} from "@faykah/core";
 import {firstNames} from "@faykah/first-names-en";
 
 // Creates a handy function to pick a random first name
@@ -91,22 +129,16 @@ const name = generateName(uppercased);
 #### Classic
 
 ```typescript
-import {createObjectGenerator} from "@faykah/core";
-
-const emails = ["first@domain.com", "second@domain.com", "third@domain.com"];
-const firstNames = ["first", "second", "third"];
-const lastNames = ["fourth", "fifth", "sixth"];
-
 // Creates a handy function to pick a random user
 const generateUser = createObjectGenerator({
   // Pick a random email
-  email: emails,
+  email: ["first@domain.com", "second@domain.com", "third@domain.com"],
 
   // Pick a random first name
-  firstName: firstNames,
+  firstName: ["first", "second", "third"],
 
   // Pick a random last name
-  lastName: lastNames
+  lastName: ["fourth", "fifth", "sixth"]
 });
 
 // User randomly picked
@@ -116,7 +148,6 @@ const user = generateUser();
 #### With libraries
 
 ```typescript
-import {createObjectGenerator} from "@faykah/core";
 import {emails} from "@faykah/emails-en";
 import {firstNames} from "@faykah/first-names-en";
 import {lastNames} from "@faykah/last-names-en";
@@ -137,10 +168,9 @@ const generateUser = createObjectGenerator({
 const user = generateUser();
 ```
 
-#### With middleware function
+#### With middleware functions
 
 ```typescript
-import {createObjectGenerator} from "@faykah/core";
 import {emails} from "@faykah/emails-en";
 import {firstNames} from "@faykah/first-names-en";
 import {lastNames} from "@faykah/last-names-en";
@@ -173,7 +203,6 @@ const user = generateUser({
 #### With nested configuration
 
 ```typescript
-import {createObjectGenerator} from "@faykah/core";
 import {emails} from "@faykah/emails-en";
 import {firstNames} from "@faykah/first-names-en";
 import {lastNames} from "@faykah/last-names-en";
@@ -203,7 +232,6 @@ const user = generateUser({meta: {email: uppercased}});
 #### With multiple generators
 
 ```typescript
-import {createObjectGenerator} from "@faykah/core";
 import {emails} from "@faykah/emails-en";
 import {firstNames} from "@faykah/first-names-en";
 import {lastNames} from "@faykah/last-names-en";
