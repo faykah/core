@@ -2,11 +2,29 @@
 
 ## Summary
 
+- [`0.4.0`](#040)
 - [`0.3.0`](#030)
 - [`0.2.2`](#022)
 - [`0.2.1`](#021)
 - [`0.2.0`](#020)
 - [`0.1.0`](#010)
+
+## 0.4.0
+
+*2020-12-04*
+
+### Major changes
+
+None.
+
+### Minor changes
+
+- Commiting and pushing any changes made to the library on Package workflow runs ([#17](https://github.com/faykah/core/pull/17))
+
+### Bug & security fixes
+
+None.
+
 
 ## 0.3.0
 
