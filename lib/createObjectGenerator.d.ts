@@ -6,5 +6,6 @@ declare type SchemaDefinition<Schema> = {
 declare type Middlewares<Schema> = {
     [Key in keyof Schema]?: ((value: Readonly<Schema[Key]>) => Schema[Key]) | Middlewares<Schema[Key]>;
 };
-export declare const createObjectGenerator: <Schema>(schemaDefinition?: Readonly<SchemaDefinition<Schema>>) => (middlewares?: Readonly<Middlewares<Schema>>) => Schema;
+declare type ObjectGenerator<Schema> = (middlewares?: Readonly<Middlewares<Schema>>) => Schema;
+export declare const createObjectGenerator: <Schema>(schemaDefinition?: Readonly<SchemaDefinition<Schema>>) => ObjectGenerator<Schema>;
 export {};
