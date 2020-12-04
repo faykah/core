@@ -168,7 +168,7 @@ const generateUser = createObjectGenerator({
 const user = generateUser();
 ```
 
-#### With middleware function
+#### With middleware functions
 
 ```typescript
 import {emails} from "@faykah/emails-en";
