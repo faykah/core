@@ -12,6 +12,28 @@ describe("createGenerator", () => {
     expect(result).toStrictEqual(expectation);
   });
 
+  it("should throw if the values are not an array", () => {
+    expect.assertions(1);
+
+    // @ts-ignore
+    const result = (): unknown => createGenerator(123);
+    const error = new TypeError("values should be an array in createGenerator(values)");
+
+    expect(result).toThrow(error);
+  });
+
+  it("should throw if the middleware is not undefined or function", () => {
+    expect.assertions(1);
+
+    const generateFirstName = createGenerator(firstNames);
+
+    // @ts-ignore
+    const result = (): string => generateFirstName(null);
+    const error = new TypeError("middleware should be a function or undefined in createGenerator(values)(middleware)");
+
+    expect(result).toThrow(error);
+  });
+
   it("should return a random first name", () => {
     expect.assertions(1);
 

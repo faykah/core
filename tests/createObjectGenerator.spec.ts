@@ -15,6 +15,36 @@ describe("createObjectGenerator", () => {
     expect(result).toStrictEqual(expectation);
   });
 
+  it("should throw if the schema definition is not an object", () => {
+    expect.assertions(1);
+
+    // @ts-ignore
+    const result = (): unknown => createObjectGenerator(null);
+    const error = new TypeError("schemaDefinition should be an object or empty in createObjectGenerator(schemaDefinition)");
+
+    expect(result).toThrow(error);
+  });
+
+  it("should throw if the middlewares are not in an object", () => {
+    expect.assertions(1);
+
+    // @ts-ignore
+    const result = (): unknown => createObjectGenerator({firstName: firstNames})(null);
+    const error = new TypeError("middlewares should be an object or empty in createObjectGenerator(schemaDefinition)(middlewares)");
+
+    expect(result).toThrow(error);
+  });
+
+  it("should throw if the middlewares are nested schema definition", () => {
+    expect.assertions(1);
+
+    // @ts-ignore
+    const result = (): unknown => createObjectGenerator({firstName: null})();
+    const error = new TypeError("values should either be an array or an object in createObjectGenerator({something: values})");
+
+    expect(result).toThrow(error);
+  });
+
   it("should return a random user with last name & first name", () => {
     expect.assertions(1);
 
