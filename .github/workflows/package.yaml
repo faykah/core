@@ -26,5 +26,20 @@ jobs:
       - name: Build the library
         run: make build
 
+      - name: Set the user name for Git
+        run: git config user.name "Amin NAIRI"
+
+      - name: Set the user email for Git
+        run: git config user.email "nairi.amin@gmail.com"
+
+      - name: Stage the library changes
+        run: git add lib
+
+      - name: Commit any changes made to the library or continue anyway
+        run: 'git commit --message ":package: production build" || true'
+
+      - name: Push any changes made to the library
+        run: git push
+
       - name: Publish the package
         run: 'make publish || true'
