@@ -2,10 +2,29 @@
 
 ## Summary
 
-- [`0.1.0`](#010)
-- [`0.2.0`](#020)
-- [`0.2.1`](#021)
+- [`0.3.0`](#030)
 - [`0.2.2`](#022)
+- [`0.2.1`](#021)
+- [`0.2.0`](#020)
+- [`0.1.0`](#010)
+
+## 0.3.0
+
+*2020-12-04*
+
+### Major changes
+
+None.
+
+### Minor changes
+
+- Added runtime type checking ([#15](https://github.com/faykah/core/pull/15))
+- Added a usage section for using the library in multiple environments ([#14](https://github.com/faykah/core/pull/14))
+- Removed the now uncessary build workflow ([#12](https://github.com/faykah/core/pull/12))
+
+### Bug & security fixes
+
+None.
 
 ## 0.2.2
 
